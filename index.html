@@ -1,0 +1,813 @@
+<link rel="stylesheet" href="style.css">
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Катя Бабенкова — психолог</title>
+
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --paper: #fffdf9;
+      --text: #292522;
+      --muted: #756e67;
+      --accent: #8c7867;
+      --line: #ddd3c8;
+      --dark: #37322e;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 56px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 250, 245, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 25px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .menu a {
+      transition: color .2s ease;
+    }
+
+    .menu a:hover {
+      color: var(--text);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 90px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    h1 {
+      font-size: clamp(52px, 7vw, 78px);
+      line-height: 1.02;
+      margin: 0 0 28px;
+    }
+
+    .hero-text {
+      max-width: 580px;
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 15px 25px;
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 4px;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: .92;
+    }
+
+    .photo-placeholder {
+      height: 560px;
+      border-radius: 230px 230px 12px 12px;
+      background:
+        linear-gradient(
+          145deg,
+          #dfd0c0,
+          #baa696
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-family: Georgia, serif;
+      font-size: 22px;
+      padding: 30px;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .paper {
+      background: var(--paper);
+    }
+
+    h2 {
+      font-size: 46px;
+      line-height: 1.15;
+      margin: 0 0 20px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .about-label {
+      font-family: Georgia, serif;
+      font-size: 26px;
+    }
+
+    /* SERVICES */
+
+    .cards {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 30px;
+      min-height: 180px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .card h3 {
+      font-size: 26px;
+      margin: 0 0 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ARTICLES */
+
+    .articles {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .article {overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--line);
+      transition: transform .2s ease;
+    }
+
+    .article:hover {
+      transform: translateY(-4px);
+    }
+
+    .article-cover {
+      height: 180px;
+      background:
+        linear-gradient(
+          135deg,
+          #d9cec2,
+          #c2b2a2
+        );
+    }
+
+    .article-content {
+      padding: 25px;
+    }
+
+    .article-tag {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 11px;
+    }
+
+    .article h3 {
+      font-size: 25px;
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    .article p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* ADMIN */
+
+    .admin {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .admin h2 {
+      color: var(--white);
+    }
+
+    .admin-text {
+      color: #d5ccc4;
+      max-width: 600px;
+    }
+
+    .admin-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .admin-list li {
+      padding: 17px 0;
+      border-bottom: 1px solid #5b554f;
+      color: #eee8e2;
+    }
+
+    .admin-list span {
+      float: right;
+      color: #c9b7a7;
+    }
+
+    /* CONTACTS */
+
+    .contact-box {
+      margin-top: 40px;
+      padding: 35px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      max-width: 700px;
+    }
+
+    .contact-item {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-item:last-child {
+      border-bottom: 0;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 40px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .container {
+        width: min(100% - 36px, 1160px);
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .admin-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-placeholder {
+        height: 430px;
+      }
+
+      .cards,
+      .articles {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+
+      h2 {
+        font-size: 38px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container">
+      <nav class="nav">
+
+        <div class="logo">
+          Катя Бабенкова
+        </div>
+
+        <div class="menu">
+          <a href="#about">Обо мне</a>
+          <a href="#services">С чем помогаю</a>
+          <a href="#articles">Статьи</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            Психологическая практика
+          </div>
+
+          <h1>
+            Понять себя.<br>
+            Стать ближе к себе.
+          </h1>
+
+          <p class="hero-text">
+            Бережное пространство, где можно остановиться,
+            разобраться в своих чувствах и найти собственные опоры.
+          </p>
+
+          <a class="button" href="#contacts">
+            Записаться на консультацию
+          </a>
+
+        </div>
+
+
+        <div class="photo-placeholder">
+          Здесь будет фотография<br>
+          Кати Бабенковой
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="paper">
+
+      <div class="container about-grid">
+
+        <div>
+          <div class="eyebrow">
+            Знакомство
+          </div>
+
+          <div class="about-label">
+            Немного обо мне
+          </div></div>
+
+        <div>
+
+          <h2>
+            Обо мне
+          </h2>
+
+          <p class="section-intro">
+            Я Катя Бабенкова, психолог.
+            В работе для меня важны доверие, уважение
+            к индивидуальности человека и возможность
+            говорить о сложном без страха оценки.
+          </p>
+
+          <p class="section-intro">
+            Здесь позже разместим настоящую биографию,
+            информацию об образовании, специализации,
+            опыте работы и профессиональном подходе.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          Направления работы
+        </div>
+
+        <h2>
+          С чем я помогаю
+        </h2>
+
+        <p class="section-intro">
+          Этот раздел в дальнейшем можно будет редактировать
+          через административную панель.
+        </p>
+
+
+        <div class="cards">
+
+          <div class="card">
+            <h3>Тревога</h3>
+            <p>
+              Постоянное напряжение, переживания
+              и ощущение потери контроля.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Отношения</h3>
+            <p>
+              Границы, конфликты, близость
+              и повторяющиеся сценарии.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Самооценка</h3>
+            <p>
+              Неуверенность, самокритика
+              и сложности с принятием себя.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Выгорание</h3>
+            <p>
+              Усталость, потеря мотивации
+              и ощущение нехватки сил.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Поиск себя</h3>
+            <p>
+              Изменения, жизненные решения
+              и вопросы о собственных желаниях.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Эмоции</h3>
+            <p>
+              Понимание своих чувств
+              и более бережное отношение к себе.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ARTICLES -->
+
+    <section id="articles" class="paper">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          Блог
+        </div>
+
+        <h2>
+          Статьи
+        </h2>
+
+        <p class="section-intro">
+          Полезные материалы о психологии.
+          В готовой версии Катя сможет самостоятельно
+          добавлять, редактировать и публиковать статьи
+          через административную панель.
+        </p>
+
+
+        <div class="articles">
+
+          <article class="article">
+
+            <div class="article-cover"></div>
+
+            <div class="article-content">
+
+              <div class="article-tag">
+                Тревожность
+              </div>
+
+              <h3>
+                Почему мы тревожимся,
+                даже когда всё хорошо?
+              </h3>
+
+              <p>
+                Пример будущей статьи.
+                Здесь будет короткий анонс материала.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="article">
+
+            <div class="article-cover"></div>
+
+            <div class="article-content">
+
+              <div class="article-tag">
+                Отношения
+              </div>
+
+              <h3>
+                Как понять свои границы?
+              </h3>
+
+              <p>
+                Пример будущей статьи.
+                Здесь будет короткий анонс материала.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="article">
+
+            <div class="article-cover"></div>
+
+            <div class="article-content">
+
+              <div class="article-tag">
+                Самооценка
+              </div>
+
+              <h3>
+                Откуда берётся
+                постоянная самокритика?
+              </h3><p>
+                Пример будущей статьи.
+                Здесь будет короткий анонс материала.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ADMIN -->
+
+    <section class="admin">
+
+      <div class="container admin-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            Будущая система управления
+          </div>
+
+          <h2>
+            Катя управляет сайтом сама
+          </h2>
+
+          <p class="admin-text">
+            Это пока визуальная демонстрация.
+            В рабочей версии здесь будет отдельная
+            защищённая админ-панель, через которую
+            Катя сможет менять содержимое сайта
+            без помощи разработчика.
+          </p>
+
+        </div>
+
+
+        <ul class="admin-list">
+
+          <li>
+            Статьи
+            <span>→ Новая статья</span>
+          </li>
+
+          <li>
+            Отзывы
+            <span>→ Добавить отзыв</span>
+          </li>
+
+          <li>
+            Информация о психологе
+            <span>→ Редактировать</span>
+          </li>
+
+          <li>
+            Направления работы
+            <span>→ Редактировать</span>
+          </li>
+
+          <li>
+            Контакты
+            <span>→ Изменить</span>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACTS -->
+
+    <section id="contacts">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          Связаться
+        </div>
+
+        <h2>
+          Записаться на консультацию
+        </h2>
+
+        <p class="section-intro">
+          Здесь позже разместим настоящую форму записи,
+          контакты, мессенджеры и ссылки на социальные сети.
+        </p>
+
+
+        <div class="contact-box">
+
+          <div class="contact-item">
+            <strong>Психолог</strong><br>
+            Катя Бабенкова
+          </div>
+
+          <div class="contact-item">
+            <strong>Формат</strong><br>
+            Онлайн / очная консультация
+          </div>
+
+          <div class="contact-item">
+            <strong>Связь</strong><br>
+            Здесь будут контакты
+          </div>
+
+          <a class="button" href="#">
+            Записаться
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        © Катя Бабенкова
+      </div>
+
+      <div>
+        Психологическая практика
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
